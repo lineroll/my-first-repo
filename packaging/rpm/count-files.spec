@@ -45,7 +45,7 @@ echo "Для перегляду документації використову�
 %{_mandir}/man1/count_files.1
 
 %changelog
-* Tue Jan 13 2026 Student KN-231 <email@example.com> - 2.0-1
+* Tue Jan 13 2026 Student KN-231 <yevheniilysenok@gmail.com> - 2.0-1
 - Version 2.0: Added config file, verbose mode, man page, and RPM scripts
-* Tue Jan 13 2026 Student KN-231 <email@example.com> - 1.0-1
+* Tue Jan 13 2026 Student KN-231 <yevheniilysenok@gmail.com> - 1.0-1
 - Initial package release
