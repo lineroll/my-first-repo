@@ -1,0 +1,20 @@
+.TH COUNT_FILES 1 "13 Jan 2026" "2.0" "count_files man page"
+.SH NAME
+count_files \- counts files recursively and calculates their total size.
+.SH SYNOPSIS
+.B count_files
+[\fIDIRECTORY\fR] [\fIEXTENSION\fR] [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B count_files
+is a utility script that scans a directory recursively, filters files by extension if provided, and calculates the total number of files and their cumulative size.
+.SH OPTIONS
+.IP -v
+Enable verbose mode for more detailed output.
+.IP -h
+Display help message and exit.
+.SH FILES
+.I /etc/count_files.conf
+.RS
+The configuration file containing default values for the directory, extension, and log file path.
+.SH AUTHOR
+Student KN-231
