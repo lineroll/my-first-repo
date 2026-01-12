@@ -1,0 +1,15 @@
+Source: count-files
+Section: utils
+Priority: optional
+Maintainer: Student KN-231 <yevheniilysenok@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Homepage: https://github.com/USERNAME/LabNew
+
+Package: count-files
+Architecture: all
+Depends: ${misc:Depends}, bash, coreutils, findutils, awk
+Description: Recursive file counter with config and man page
+ A Bash script that recursively counts files in a specified directory.
+ Version 2.0 includes support for a configuration file, verbose mode,
+ and a man page.

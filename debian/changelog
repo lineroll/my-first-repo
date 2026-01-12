@@ -1,0 +1,7 @@
+count-files (2.0-1) unstable; urgency=medium
+
+  * Initial release of version 2.0
+  * Added configuration file and man page support
+  * Added postinst and prerm scripts
+
+ -- Student KN-231 <yevheniilysenok@gmail.com>  Tue, 13 Jan 2026 12:00:00 +0200

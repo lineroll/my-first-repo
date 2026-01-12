@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+    echo "Пакет count-files успішно налаштовано."
+    echo "Ви можете змінити налаштування у /etc/count_files.conf"
+fi
+
+#DEBHELPER#
+exit 0
