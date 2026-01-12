@@ -2,7 +2,7 @@ name: Lint Bash Scripts
 
 on:
   push:
-    branches: [ main, feature/github-actions ]
+    branches: [ main, feature/lab3 ]
   pull_request:
     branches: [ main ]
 
