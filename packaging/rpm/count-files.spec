@@ -42,7 +42,7 @@ echo "Для перегляду документації використову�
 %files
 %{_bindir}/count_files
 %config(noreplace) %{_sysconfdir}/count_files.conf
-%{_mandir}/man1/count_files.1
+%{_mandir}/man1/count_files.1*
 
 %changelog
 * Tue Jan 13 2026 Student KN-231 <yevheniilysenok@gmail.com> - 2.0-1
