@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # Jenkins Master
+  jenkins-master:
+    build: ./jenkins/master
+    container_name: jenkins-master
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      # 2. Налаштування збереження даних на хості
+      - ./jenkins_data/master_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+    networks:
+      - jenkins-net
+
+  # 1. Додатковий агент для DEB (Ubuntu/Debian)
+  jenkins-agent-deb:
+    build: ./jenkins/agent-debian
+    container_name: jenkins-agent-deb
+    restart: always
+    depends_on:
+      - jenkins-master
+    environment:
+      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_AGENT_NAME=deb-agent
+      - JENKINS_SECRET=your_secret_here
+    networks:
+      - jenkins-net
+
+  # 1. Додатковий агент для RPM (Fedora)
+  jenkins-agent-rpm:
+    build: ./jenkins/agent-fedora
+    container_name: jenkins-agent-rpm
+    restart: always
+    depends_on:
+      - jenkins-master
+    environment:
+      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_AGENT_NAME=rpm-agent
+      - JENKINS_SECRET=your_secret_here
+    networks:
+      - jenkins-net
+
+  # 4. Проксі для SSL (імітація)
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: jenkins-proxy
+    ports:
+      - "443:443"
+    volumes:
+      - ./jenkins/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./jenkins/certs:/etc/nginx/certs:ro
+    depends_on:
+      - jenkins-master
+    networks:
+      - jenkins-net
+
+networks:
+  jenkins-net:
+    driver: bridge
